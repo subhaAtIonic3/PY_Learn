@@ -69,3 +69,40 @@ def check_guess(shuffle_list, guess):
 
 shuffle_list = initial_list
 check_guess(shuffle_list, player_guess())
+
+
+#  *args and **kwargs
+def my_func(a, b):
+    return sum((a, b)) * 0.5
+
+
+print(my_func(4, 5))
+
+
+# infinite arguments
+def infi_args(*args):
+    return sum(args)
+
+
+print(infi_args(1, 2, 3))
+
+
+# **kwargs
+
+def infi_kwargs(**kwargs):
+    if "fruit" in kwargs:
+        print(f"My fav fruit is {kwargs['fruit']}")
+    else:
+        print("Fruit didn't here")
+
+
+print(infi_kwargs(fruit="apple", veg="my veg"))
+
+# *args and **kwargs
+
+
+def my_func_two(*args, **kwargs):
+    print(f"I want {args[0]} bags of {kwargs['food']}")
+
+
+my_func_two(2, 3, 4, 5, food="rice", animal="dog")
