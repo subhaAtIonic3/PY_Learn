@@ -106,3 +106,27 @@ def my_func_two(*args, **kwargs):
 
 
 my_func_two(2, 3, 4, 5, food="rice", animal="dog")
+
+
+# map function
+
+def square(num):
+    return num ** 2
+
+
+map_list = [1, 2, 3, 4, 5]
+
+print(list(map(square, map_list)))
+
+# filter function
+
+
+def check_item(num):
+    return num % 2 == 0
+
+
+print(list(filter(check_item, list(map(square, map_list)))))
+
+# Lambda expression
+print(list(map(lambda num: num ** 2, map_list)))
+print(list(filter(lambda num: num % 2 == 0, map_list)))
