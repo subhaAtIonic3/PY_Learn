@@ -130,3 +130,27 @@ print(list(filter(check_item, list(map(square, map_list)))))
 # Lambda expression
 print(list(map(lambda num: num ** 2, map_list)))
 print(list(filter(lambda num: num % 2 == 0, map_list)))
+
+# Fibonacci series
+n_term = int(input("Please select the series term..."))
+
+
+def print_fib(n_term):
+    n1 = 0
+    n2 = 1
+    count = 0
+
+    if n_term <= 0:
+        print(0)
+    elif n_term == 1:
+        print(0)
+    else:
+        while count < n_term:
+            print(n1)  # 0, 1, 1, 2
+            nth = n1 + n2  # 1, 2, 3, 5
+            n1 = n2  # 1, 1, 2, 3
+            n2 = nth  # 1, 2, 3, 5
+            count += 1
+
+
+print_fib(n_term)
