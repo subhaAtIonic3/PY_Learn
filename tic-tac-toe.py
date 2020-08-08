@@ -58,6 +58,7 @@ def check_winner(is_user_one):
     win_status = check_user_win()
     # print("Check user stats => ", win_status)
     if win_status:
+        restart_game()
         return
     else:
         # draw_status_at_row1 = check_draw_status(row1)
@@ -70,8 +71,13 @@ def check_winner(is_user_one):
         #     print("It's a draw!!")
         #     display_board()
         # else:
-        display_board()
-        user_input(is_user_one)
+        if len(user_input_index) == 0:
+            print("It's a draw!!")
+            display_board()
+            restart_game()
+        else:
+            display_board()
+            user_input(is_user_one)
 
 
 def get_user_value(postion):
@@ -93,37 +99,33 @@ def display_user_turn(is_user_one):
 
 
 def user_actual_input_position(row_position, position, is_user_one):
-
-    if len(user_input_index) == 0:
-        print("It's a draw!!")
-    else:
-        if row_position == 1:
-            if row1[position] == " ":
-                row1[position] = "X" if is_user_one else "O"
-                user_input_index.pop()
-                check_winner(not is_user_one)
-            else:
-                print("This place has already been filled")
-                display_board()
-                user_input(is_user_one)
-        elif row_position == 2:
-            if row2[position] == " ":
-                row2[position] = "X" if is_user_one else "O"
-                user_input_index.pop()
-                check_winner(not is_user_one)
-            else:
-                print("This place has already been filled")
-                display_board()
-                user_input(is_user_one)
+    if row_position == 1:
+        if row1[position] == " ":
+            row1[position] = "X" if is_user_one else "O"
+            user_input_index.pop()
+            check_winner(not is_user_one)
         else:
-            if row3[position] == " ":
-                row3[position] = "X" if is_user_one else "O"
-                user_input_index.pop()
-                check_winner(not is_user_one)
-            else:
-                print("This place has already been filled")
-                display_board()
-                user_input(is_user_one)
+            print("This place has already been filled")
+            display_board()
+            user_input(is_user_one)
+    elif row_position == 2:
+        if row2[position] == " ":
+            row2[position] = "X" if is_user_one else "O"
+            user_input_index.pop()
+            check_winner(not is_user_one)
+        else:
+            print("This place has already been filled")
+            display_board()
+            user_input(is_user_one)
+    else:
+        if row3[position] == " ":
+            row3[position] = "X" if is_user_one else "O"
+            user_input_index.pop()
+            check_winner(not is_user_one)
+        else:
+            print("This place has already been filled")
+            display_board()
+            user_input(is_user_one)
 
 
 def user_input(is_user_one=False):
@@ -152,6 +154,39 @@ def user_input(is_user_one=False):
         user_actual_input_position(3, user_position - 7, is_user_one)
 
 
+def show_welcome_message():
+    print("Welcome!!")
+    print("Player One in 'X'")
+    print("Player Two is 'O'")
+
+
+def display_rules():
+    print([1, 2, 3])
+    print([4, 5, 6])
+    print([7, 8, 9])
+    print("Use 1-9 to place your choice")
+
+
+def restart_game():
+    acceptable_user_answere = ["Y", "N"]
+
+    user_answere = input("Do you want to play again? (Y/N) => ")
+
+    if user_answere in acceptable_user_answere:
+        if user_answere == "Y":
+            row1 = [" ", " ", " "]
+            row2 = [" ", " ", " "]
+            row3 = [" ", " ", " "]
+            user_input_index = list(range(1, 10))
+            user_input(True)
+        else:
+            print("Bye!!")
+    else:
+        restart_game()
+
+
+show_welcome_message()
+display_rules()
 user_input(True)
 
 # check_user_win()
