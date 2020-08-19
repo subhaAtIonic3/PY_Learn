@@ -6,6 +6,7 @@ def crate_cubes(n):
     # return result
 
 
+<<<<<<< HEAD
 # for x in crate_cubes(10):
 #     print(x)
 
@@ -40,3 +41,7 @@ s = "hello"
 iter_str = iter(s)
 print(next(iter_str))
 print(next(iter(iter_str)))
+=======
+for x in crate_cubes(10):
+    print(x)
+>>>>>>> 46012aa7e5c08036f2bf6666eb093b619a1b6bc0
