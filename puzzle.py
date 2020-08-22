@@ -4,6 +4,10 @@ import re
 
 shutil.unpack_archive("unzip_me_for_instructions.zip", "puzzle-dir", "zip")
 
+with open("puzzle-dir/extracted_content/Instructions.txt") as f:
+    content = f.read()
+    print(content)
+
 phone_number_list = []
 
 
