@@ -35,3 +35,18 @@ print("Split =>", "test string".split())
 new_string = "maddam"
 isPallindrom = (new_string == new_string[::-1])
 print("Pallindrom result =>", isPallindrom)
+
+
+# Advanced String
+
+
+word = "Hello world!"
+
+print("'o' count in 'Hello world!' is  => ", word.count('o'))
+print("first postion of 'o' is => ", word.find('o'))
+print("any spacing => ", word.isspace())
+print("is alphabetic =>", word.isalpha())
+print("is alphanumeric =>", word.isalnum())
+print(word.split("o"))
+print(word.partition("o"))
+print(word.endswith("!"))

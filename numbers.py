@@ -22,3 +22,14 @@ num_a = num_b - num_a
 num_b = num_b - num_a
 
 print("Swap numbers are =>", num_a, num_b)
+
+
+# Advanced concept
+
+print("hex(930) is => ", hex(930))
+print("bin(512) is  => ", bin(512))
+print(pow(2, 3))
+
+print("pow 2^3 with mod 8 % 2 => ", pow(2, 3, 2))
+print("absolute value => ", abs(-2))
+print("round a number", round(3.141592, 2))
